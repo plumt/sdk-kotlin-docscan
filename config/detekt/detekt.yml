@@ -1,0 +1,50 @@
+# buildUponDefaultConfig = true — 여기 적지 않은 규칙은 detekt 기본값을 따른다. 바꾼 것만 이유와 함께 둔다.
+
+style:
+  # 분류 경계는 이미 분류된 예외·IAE·취소를 그대로 다시 던지고 나머지를 감싼다 — 예외 종류마다 throw 하나다
+  ThrowsCount:
+    max: 6
+  # PDF 형식 상수·용지 크기(포인트)·Play 서비스 상태 코드는 이름 붙인 상수로 두되, 테스트의 기대값까지 상수로 뽑지 않는다
+  MagicNumber:
+    excludes: ['**/test/**']
+  # 한국어 KDoc 은 기본 120자를 쉽게 넘긴다 — 결함 신호가 아니다
+  MaxLineLength:
+    active: false
+  # 함수 앞머리의 가드 절은 중첩을 줄이는 권장 패턴이라 세지 않는다
+  ReturnCount:
+    excludeGuardClauses: true
+    # 결과 코드 해석(취소·성공·기타 → 인텐트 없음·판독 실패·빈 결과)은 경우마다 바로 돌려준다
+    max: 5
+
+naming:
+  # 테스트 이름은 백틱 문장으로 쓴다
+  FunctionNaming:
+    excludes: ['**/test/**']
+    # 컴포저블은 PascalCase 가 아니라 remember* 만 있다. 그래도 Compose 관례를 허용한다
+    ignoreAnnotated: ['Composable']
+
+complexity:
+  # 불변 목록(PageList)은 합치기·끼우기·옮기기·삭제·재배열·조회를 각각 연산 하나로 둔다
+  TooManyFunctions:
+    excludes: ['**/test/**']
+    ignorePrivate: true
+    thresholdInClasses: 15
+  # 공개 진입점(런처)은 액티비티 결과 런처·액티비티 공급자·설정·결과 콜백·준비 공급원을, PDF 페이지(PdfPage)는
+  # 페이지 크기 2·이미지·이미지 자리 4·글자 층을 함께 받는다 — 묶음 타입을 따로 두면 공개 타입만 늘어난다
+  LongParameterList:
+    constructorThreshold: 9
+    functionThreshold: 7
+  # 실패 분류는 상태 코드 하나당 분기 하나라 분기 수가 많은 것이 결함 신호가 아니다
+  CyclomaticComplexMethod:
+    ignoreSimpleWhenEntries: true
+  LongMethod:
+    excludes: ['**/test/**']
+  LargeClass:
+    excludes: ['**/test/**']
+
+exceptions:
+  # 외부 엔진(Play 서비스·ML Kit·플랫폼 PDF·끼운 구현)의 모든 예외를 원인 보존 DocScanException 으로 바꾸는 경계는 의도적으로 넓게 잡는다(@Suppress 로 표시)
+  TooGenericExceptionCaught:
+    excludes: ['**/test/**']
+  SwallowedException:
+    excludes: ['**/test/**']

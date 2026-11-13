@@ -1,0 +1,54 @@
+[versions]
+agp = "9.0.1"
+kotlin = "2.2.10"
+binary-compatibility-validator = "0.18.1"
+maven-publish = "0.36.0"
+kover = "0.9.1"
+detekt = "1.23.8"
+coroutines = "1.10.2"
+androidx-activity = "1.10.1"
+androidx-core = "1.17.0"
+compose-bom = "2025.02.00"
+# 문서 스캐너(촬영 UI·갤러리 가져오기·모서리 감지·자르기·필터·PDF/JPEG 출력). Google Maven 최신 안정판
+mlkit-document-scanner = "16.0.0"
+# 아래 셋은 문서 스캐너 16.0.0 이 끌어오는 버전과 같게 둔다 — 직접 쓰는 API(모듈 설치·Task·MlKitException)를 명시할 뿐 버전을 올리지 않는다
+play-services-base = "18.5.0"
+play-services-tasks = "18.2.0"
+mlkit-common = "18.11.0"
+# 한국어(라틴 문자 포함) 텍스트 인식 — Play 서비스가 모델을 내려받는 방식(앱에 모델을 싣지 않는다)
+mlkit-text-recognition-korean = "16.0.2"
+junit = "4.13.2"
+robolectric = "4.14.1"
+androidx-test-core = "1.6.1"
+androidx-test-ext-junit = "1.2.1"
+
+[libraries]
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+androidx-compose-runtime = { module = "androidx.compose.runtime:runtime" }
+androidx-compose-runtime-saveable = { module = "androidx.compose.runtime:runtime-saveable" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+mlkit-document-scanner = { module = "com.google.android.gms:play-services-mlkit-document-scanner", version.ref = "mlkit-document-scanner" }
+play-services-base = { module = "com.google.android.gms:play-services-base", version.ref = "play-services-base" }
+play-services-tasks = { module = "com.google.android.gms:play-services-tasks", version.ref = "play-services-tasks" }
+mlkit-common = { module = "com.google.mlkit:common", version.ref = "mlkit-common" }
+mlkit-text-recognition-korean = { module = "com.google.android.gms:play-services-mlkit-text-recognition-korean", version.ref = "mlkit-text-recognition-korean" }
+junit = { module = "junit:junit", version.ref = "junit" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test-core" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-test-ext-junit" }
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary-compatibility-validator" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
