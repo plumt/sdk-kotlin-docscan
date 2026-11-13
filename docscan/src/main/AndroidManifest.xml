@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        uses-permission 을 선언하지 않는다. 다운로드 저장은 API 29+ MediaStore(권한 불필요), 28 이하는 앱 전용 폴더(권한 불필요)다.
+        카메라는 Google Play 서비스의 스캐너 화면이 자기 권한으로 연다 — 앱이 CAMERA 를 선언하지 않는다.
+
+        공유용 FileProvider 는 androidx FileProvider 를 그대로 쓰지 않고 이 SDK 의 하위 클래스로 선언한다.
+        앱이 자기 androidx.core.content.FileProvider 를 선언해도 클래스 이름이 달라 매니페스트 병합이 충돌하지 않는다.
+        authority 는 앱 패키지(applicationId) 기반이라 이 SDK 를 쓰는 앱끼리 겹치지 않는다(INSTALL_FAILED_CONFLICTING_PROVIDER 없음).
+    -->
+    <application>
+        <provider
+            android:name="net.plumt.docscan.storage.DocScanFileProvider"
+            android:authorities="${applicationId}.plumt.docscan.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/plumt_docscan_file_paths" />
+        </provider>
+    </application>
+</manifest>

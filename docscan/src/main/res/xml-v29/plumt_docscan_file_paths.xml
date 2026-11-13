@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- API 29+. 저장은 MediaStore 라 여기로 내보낼 곳은 캐시 안 공유 전용 폴더 하나뿐이다. 앱의 다른 파일은 이 provider 로 열리지 않는다 -->
+<paths>
+    <cache-path
+        name="plumt_docscan_share"
+        path="plumt_docscan/share/" />
+</paths>

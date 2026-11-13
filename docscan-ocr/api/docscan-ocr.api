@@ -1,0 +1,7 @@
+public final class net/plumt/docscan/ocr/KoreanTextRecognizer : java/io/Closeable, net/plumt/docscan/pdf/PageTextRecognizer {
+	public fun <init> ()V
+	public final fun availability (Landroid/content/Context;)Lnet/plumt/docscan/ModuleAvailability;
+	public fun close ()V
+	public fun recognize (Landroid/graphics/Bitmap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

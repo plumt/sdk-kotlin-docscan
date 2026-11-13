@@ -1,0 +1,4 @@
+public final class net/plumt/docscan/compose/RememberDocumentScanLauncherKt {
+	public static final fun rememberDocumentScanLauncher (Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Lnet/plumt/docscan/DocumentScanLauncher;
+}
+

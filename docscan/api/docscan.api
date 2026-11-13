@@ -1,0 +1,469 @@
+public final class net/plumt/docscan/DocScanException : java/lang/Exception {
+	public fun <init> (Lnet/plumt/docscan/DocScanFailureReason;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Lnet/plumt/docscan/DocScanFailureReason;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getReason ()Lnet/plumt/docscan/DocScanFailureReason;
+	public final fun getStatusCode ()Ljava/lang/Integer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/DocScanFailureReason : java/lang/Enum {
+	public static final field IMAGE_DECODE_FAILED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field INSUFFICIENT_STORAGE Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field IO_ERROR Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field MODULE_DOWNLOAD_FAILED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field MODULE_DOWNLOAD_REQUIRED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field NETWORK_ERROR Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field OUT_OF_MEMORY Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field PDF_FAILED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field PLAY_SERVICES_API_UNAVAILABLE Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field PLAY_SERVICES_MISSING Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field PLAY_SERVICES_UPDATE_REQUIRED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field RESULT_MISSING Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field TEXT_RECOGNITION_FAILED Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field UNKNOWN Lnet/plumt/docscan/DocScanFailureReason;
+	public static final field UNSUPPORTED_DEVICE Lnet/plumt/docscan/DocScanFailureReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lnet/plumt/docscan/DocScanFailureReason;
+	public static fun values ()[Lnet/plumt/docscan/DocScanFailureReason;
+}
+
+public final class net/plumt/docscan/DocumentScanContract : androidx/activity/result/contract/ActivityResultContract {
+	public fun <init> ()V
+	public fun createIntent (Landroid/content/Context;Landroidx/activity/result/IntentSenderRequest;)Landroid/content/Intent;
+	public synthetic fun createIntent (Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;
+	public synthetic fun parseResult (ILandroid/content/Intent;)Ljava/lang/Object;
+	public fun parseResult (ILandroid/content/Intent;)Lnet/plumt/docscan/DocumentScanResult;
+}
+
+public final class net/plumt/docscan/DocumentScanLauncher {
+	public fun <init> (Landroidx/activity/result/ActivityResultLauncher;Lkotlin/jvm/functions/Function0;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Landroidx/activity/result/ActivityResultLauncher;Lkotlin/jvm/functions/Function0;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun dispatchResult (Lnet/plumt/docscan/DocumentScanResult;)V
+	public final fun getOptions ()Lnet/plumt/docscan/DocumentScanOptions;
+	public final fun isInProgress ()Z
+	public final fun isPreparing ()Z
+	public final fun launch ()Z
+}
+
+public final class net/plumt/docscan/DocumentScanLauncherKt {
+	public static final fun registerDocumentScanner (Landroidx/activity/ComponentActivity;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;Lkotlin/jvm/functions/Function1;)Lnet/plumt/docscan/DocumentScanLauncher;
+	public static final fun registerDocumentScanner (Landroidx/activity/result/ActivityResultCaller;Lkotlin/jvm/functions/Function0;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;Lkotlin/jvm/functions/Function1;)Lnet/plumt/docscan/DocumentScanLauncher;
+	public static synthetic fun registerDocumentScanner$default (Landroidx/activity/ComponentActivity;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentSource;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lnet/plumt/docscan/DocumentScanLauncher;
+}
+
+public final class net/plumt/docscan/DocumentScanOptions {
+	public fun <init> ()V
+	public fun <init> (ZLjava/lang/Integer;Lnet/plumt/docscan/ScannerMode;Ljava/util/Set;)V
+	public synthetic fun <init> (ZLjava/lang/Integer;Lnet/plumt/docscan/ScannerMode;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowGalleryImport ()Z
+	public final fun getMode ()Lnet/plumt/docscan/ScannerMode;
+	public final fun getOutputs ()Ljava/util/Set;
+	public final fun getPageLimit ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class net/plumt/docscan/DocumentScanResult : android/os/Parcelable {
+}
+
+public final class net/plumt/docscan/DocumentScanResult$Cancelled : net/plumt/docscan/DocumentScanResult {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public static final field INSTANCE Lnet/plumt/docscan/DocumentScanResult$Cancelled;
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/DocumentScanResult$Failure : net/plumt/docscan/DocumentScanResult {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Lnet/plumt/docscan/DocScanException;)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lnet/plumt/docscan/DocScanException;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/DocumentScanResult$Success : net/plumt/docscan/DocumentScanResult {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Lnet/plumt/docscan/ScannedDocument;)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDocument ()Lnet/plumt/docscan/ScannedDocument;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/DownloadProgress {
+	public fun <init> (Lnet/plumt/docscan/DownloadState;JJ)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytesDownloaded ()J
+	public final fun getFraction ()Ljava/lang/Float;
+	public final fun getState ()Lnet/plumt/docscan/DownloadState;
+	public final fun getTotalBytes ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/DownloadState : java/lang/Enum {
+	public static final field CANCELED Lnet/plumt/docscan/DownloadState;
+	public static final field COMPLETED Lnet/plumt/docscan/DownloadState;
+	public static final field DOWNLOADING Lnet/plumt/docscan/DownloadState;
+	public static final field FAILED Lnet/plumt/docscan/DownloadState;
+	public static final field INSTALLING Lnet/plumt/docscan/DownloadState;
+	public static final field PAUSED Lnet/plumt/docscan/DownloadState;
+	public static final field PENDING Lnet/plumt/docscan/DownloadState;
+	public static final field UNKNOWN Lnet/plumt/docscan/DownloadState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lnet/plumt/docscan/DownloadState;
+	public static fun values ()[Lnet/plumt/docscan/DownloadState;
+}
+
+public abstract interface class net/plumt/docscan/ModuleAvailability {
+	public static final field Companion Lnet/plumt/docscan/ModuleAvailability$Companion;
+	public abstract fun check (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun install (Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun install$default (Lnet/plumt/docscan/ModuleAvailability;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class net/plumt/docscan/ModuleAvailability$Companion {
+	public final fun documentScanner (Landroid/content/Context;Lnet/plumt/docscan/DocumentScanOptions;)Lnet/plumt/docscan/ModuleAvailability;
+	public static synthetic fun documentScanner$default (Lnet/plumt/docscan/ModuleAvailability$Companion;Landroid/content/Context;Lnet/plumt/docscan/DocumentScanOptions;ILjava/lang/Object;)Lnet/plumt/docscan/ModuleAvailability;
+	public final fun of (Landroid/content/Context;Lcom/google/android/gms/common/api/OptionalModuleApi;)Lnet/plumt/docscan/ModuleAvailability;
+}
+
+public final class net/plumt/docscan/ModuleAvailability$DefaultImpls {
+	public static synthetic fun install$default (Lnet/plumt/docscan/ModuleAvailability;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class net/plumt/docscan/PageList : android/os/Parcelable {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public static final field Companion Lnet/plumt/docscan/PageList$Companion;
+	public static final field Empty Lnet/plumt/docscan/PageList;
+	public synthetic fun <init> (Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun get (I)Lnet/plumt/docscan/ScanPage;
+	public final fun getPages ()Ljava/util/List;
+	public final fun getSize ()I
+	public fun hashCode ()I
+	public final fun insert (ILjava/util/List;)Lnet/plumt/docscan/PageList;
+	public final fun isEmpty ()Z
+	public final fun move (II)Lnet/plumt/docscan/PageList;
+	public final fun plus (Ljava/util/List;)Lnet/plumt/docscan/PageList;
+	public final fun plus (Lnet/plumt/docscan/ScannedDocument;)Lnet/plumt/docscan/PageList;
+	public final fun removeAt (I)Lnet/plumt/docscan/PageList;
+	public final fun reorder (Ljava/util/List;)Lnet/plumt/docscan/PageList;
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/PageList$Companion {
+	public final fun of (Ljava/util/List;)Lnet/plumt/docscan/PageList;
+	public final fun of (Lnet/plumt/docscan/ScannedDocument;)Lnet/plumt/docscan/PageList;
+}
+
+public final class net/plumt/docscan/PlayServicesResolutionKt {
+	public static final fun showPlayServicesResolution (Lnet/plumt/docscan/DocScanException;Landroid/app/Activity;I)Z
+	public static synthetic fun showPlayServicesResolution$default (Lnet/plumt/docscan/DocScanException;Landroid/app/Activity;IILjava/lang/Object;)Z
+}
+
+public abstract interface class net/plumt/docscan/ScanIntentCallback {
+	public abstract fun onError (Lnet/plumt/docscan/DocScanException;)V
+	public abstract fun onReady (Landroidx/activity/result/IntentSenderRequest;)V
+}
+
+public abstract interface class net/plumt/docscan/ScanIntentSource {
+	public static final field Companion Lnet/plumt/docscan/ScanIntentSource$Companion;
+	public abstract fun prepare (Landroid/app/Activity;Lnet/plumt/docscan/DocumentScanOptions;Lnet/plumt/docscan/ScanIntentCallback;)V
+}
+
+public final class net/plumt/docscan/ScanIntentSource$Companion {
+	public final fun gms (Landroid/content/Context;)Lnet/plumt/docscan/ScanIntentSource;
+}
+
+public final class net/plumt/docscan/ScanOutput : java/lang/Enum {
+	public static final field JPEG Lnet/plumt/docscan/ScanOutput;
+	public static final field PDF Lnet/plumt/docscan/ScanOutput;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lnet/plumt/docscan/ScanOutput;
+	public static fun values ()[Lnet/plumt/docscan/ScanOutput;
+}
+
+public final class net/plumt/docscan/ScanPage : android/os/Parcelable {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Landroid/net/Uri;)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri ()Landroid/net/Uri;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/ScannedDocument : android/os/Parcelable {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Ljava/util/List;Lnet/plumt/docscan/ScannedPdf;)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPages ()Ljava/util/List;
+	public final fun getPdf ()Lnet/plumt/docscan/ScannedPdf;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public final class net/plumt/docscan/ScannedPdf : android/os/Parcelable {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Landroid/net/Uri;I)V
+	public final fun describeContents ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPageCount ()I
+	public final fun getUri ()Landroid/net/Uri;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public abstract class net/plumt/docscan/ScannerAvailability {
+}
+
+public final class net/plumt/docscan/ScannerAvailability$Available : net/plumt/docscan/ScannerAvailability {
+	public static final field INSTANCE Lnet/plumt/docscan/ScannerAvailability$Available;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/ScannerAvailability$DownloadRequired : net/plumt/docscan/ScannerAvailability {
+	public static final field INSTANCE Lnet/plumt/docscan/ScannerAvailability$DownloadRequired;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/ScannerAvailability$Unavailable : net/plumt/docscan/ScannerAvailability {
+	public fun <init> (Lnet/plumt/docscan/DocScanException;)V
+	public final fun getError ()Lnet/plumt/docscan/DocScanException;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/ScannerMode : java/lang/Enum {
+	public static final field BASE Lnet/plumt/docscan/ScannerMode;
+	public static final field BASE_WITH_FILTER Lnet/plumt/docscan/ScannerMode;
+	public static final field FULL Lnet/plumt/docscan/ScannerMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lnet/plumt/docscan/ScannerMode;
+	public static fun values ()[Lnet/plumt/docscan/ScannerMode;
+}
+
+public abstract class net/plumt/docscan/pdf/PageSize {
+	public static final field Companion Lnet/plumt/docscan/pdf/PageSize$Companion;
+	public static final field MAX_POINTS F
+	public static final field MIN_POINTS F
+}
+
+public final class net/plumt/docscan/pdf/PageSize$A4 : net/plumt/docscan/pdf/PageSize {
+	public static final field INSTANCE Lnet/plumt/docscan/pdf/PageSize$A4;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/PageSize$Companion {
+}
+
+public final class net/plumt/docscan/pdf/PageSize$Custom : net/plumt/docscan/pdf/PageSize {
+	public fun <init> (FF)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeightPt ()F
+	public final fun getWidthPt ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/PageSize$Letter : net/plumt/docscan/pdf/PageSize {
+	public static final field INSTANCE Lnet/plumt/docscan/pdf/PageSize$Letter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/PageSize$Original : net/plumt/docscan/pdf/PageSize {
+	public static final field INSTANCE Lnet/plumt/docscan/pdf/PageSize$Original;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class net/plumt/docscan/pdf/PageTextRecognizer {
+	public abstract fun recognize (Landroid/graphics/Bitmap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class net/plumt/docscan/pdf/PdfComposer {
+	public static final field Companion Lnet/plumt/docscan/pdf/PdfComposer$Companion;
+	public static final field MAX_PAGES I
+	public abstract fun compose (Ljava/util/List;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun compose (Lnet/plumt/docscan/PageList;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun compose$default (Lnet/plumt/docscan/pdf/PdfComposer;Ljava/util/List;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun compose$default (Lnet/plumt/docscan/pdf/PdfComposer;Lnet/plumt/docscan/PageList;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class net/plumt/docscan/pdf/PdfComposer$Companion {
+	public static final field MAX_PAGES I
+	public final fun create (Landroid/content/Context;Lkotlinx/coroutines/CoroutineDispatcher;)Lnet/plumt/docscan/pdf/PdfComposer;
+	public static synthetic fun create$default (Lnet/plumt/docscan/pdf/PdfComposer$Companion;Landroid/content/Context;Lkotlinx/coroutines/CoroutineDispatcher;ILjava/lang/Object;)Lnet/plumt/docscan/pdf/PdfComposer;
+}
+
+public final class net/plumt/docscan/pdf/PdfComposer$DefaultImpls {
+	public static fun compose (Lnet/plumt/docscan/pdf/PdfComposer;Lnet/plumt/docscan/PageList;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun compose$default (Lnet/plumt/docscan/pdf/PdfComposer;Ljava/util/List;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun compose$default (Lnet/plumt/docscan/pdf/PdfComposer;Lnet/plumt/docscan/PageList;Ljava/io/OutputStream;Lnet/plumt/docscan/pdf/PdfOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class net/plumt/docscan/pdf/PdfEncoder {
+	public static final field Companion Lnet/plumt/docscan/pdf/PdfEncoder$Companion;
+	public abstract fun open (Ljava/io/OutputStream;)Lnet/plumt/docscan/pdf/PdfEncoder$Session;
+}
+
+public final class net/plumt/docscan/pdf/PdfEncoder$Companion {
+	public final fun compact (I)Lnet/plumt/docscan/pdf/PdfEncoder;
+	public static synthetic fun compact$default (Lnet/plumt/docscan/pdf/PdfEncoder$Companion;IILjava/lang/Object;)Lnet/plumt/docscan/pdf/PdfEncoder;
+	public final fun platform ()Lnet/plumt/docscan/pdf/PdfEncoder;
+}
+
+public abstract interface class net/plumt/docscan/pdf/PdfEncoder$Session {
+	public abstract fun abort ()V
+	public abstract fun addPage (Lnet/plumt/docscan/pdf/PdfPage;)V
+	public abstract fun finish ()V
+}
+
+public final class net/plumt/docscan/pdf/PdfOptions {
+	public static final field Companion Lnet/plumt/docscan/pdf/PdfOptions$Companion;
+	public static final field DEFAULT_DPI I
+	public static final field MAX_DPI I
+	public static final field MAX_MARGIN_PT F
+	public static final field MIN_DPI I
+	public fun <init> ()V
+	public fun <init> (Lnet/plumt/docscan/pdf/PageSize;FILnet/plumt/docscan/pdf/PdfEncoder;Lnet/plumt/docscan/pdf/PageTextRecognizer;)V
+	public synthetic fun <init> (Lnet/plumt/docscan/pdf/PageSize;FILnet/plumt/docscan/pdf/PdfEncoder;Lnet/plumt/docscan/pdf/PageTextRecognizer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getEncoder ()Lnet/plumt/docscan/pdf/PdfEncoder;
+	public final fun getImageDpi ()I
+	public final fun getMarginPt ()F
+	public final fun getPageSize ()Lnet/plumt/docscan/pdf/PageSize;
+	public final fun getTextRecognizer ()Lnet/plumt/docscan/pdf/PageTextRecognizer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/PdfOptions$Companion {
+}
+
+public final class net/plumt/docscan/pdf/PdfPage {
+	public fun <init> (FFLandroid/graphics/Bitmap;FFFFLjava/util/List;)V
+	public final fun getHeightPt ()F
+	public final fun getImage ()Landroid/graphics/Bitmap;
+	public final fun getImageHeight ()F
+	public final fun getImageLeft ()F
+	public final fun getImageTop ()F
+	public final fun getImageWidth ()F
+	public final fun getTexts ()Ljava/util/List;
+	public final fun getWidthPt ()F
+}
+
+public final class net/plumt/docscan/pdf/PdfReport {
+	public fun <init> (II)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPageCount ()I
+	public final fun getTextLineCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/PdfText {
+	public fun <init> (Ljava/lang/String;FFFF)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight ()F
+	public final fun getLeft ()F
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTop ()F
+	public final fun getWidth ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/pdf/TextLine {
+	public fun <init> (Ljava/lang/String;FFFF)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom ()F
+	public final fun getLeft ()F
+	public final fun getRight ()F
+	public final fun getText ()Ljava/lang/String;
+	public final fun getTop ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class net/plumt/docscan/storage/DocScanFileProvider : androidx/core/content/FileProvider {
+	public fun <init> ()V
+}
+
+public abstract interface class net/plumt/docscan/storage/PdfSaver {
+	public static final field Companion Lnet/plumt/docscan/storage/PdfSaver$Companion;
+	public abstract fun save (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class net/plumt/docscan/storage/PdfSaver$Companion {
+	public final fun downloads (Landroid/content/Context;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;)Lnet/plumt/docscan/storage/PdfSaver;
+	public static synthetic fun downloads$default (Lnet/plumt/docscan/storage/PdfSaver$Companion;Landroid/content/Context;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;ILjava/lang/Object;)Lnet/plumt/docscan/storage/PdfSaver;
+}
+
+public final class net/plumt/docscan/storage/PdfSharing {
+	public static final field INSTANCE Lnet/plumt/docscan/storage/PdfSharing;
+	public final fun authority (Landroid/content/Context;)Ljava/lang/String;
+	public final fun clearShared (Landroid/content/Context;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun clearShared$default (Lnet/plumt/docscan/storage/PdfSharing;Landroid/content/Context;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun copyForSharing (Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun copyForSharing$default (Lnet/plumt/docscan/storage/PdfSharing;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun newShareFile (Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+	public final fun shareDirectory (Landroid/content/Context;)Ljava/io/File;
+	public final fun shareIntent (Landroid/content/Context;Ljava/io/File;Ljava/lang/CharSequence;)Landroid/content/Intent;
+	public final fun shareIntent (Landroid/net/Uri;Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
+	public static synthetic fun shareIntent$default (Lnet/plumt/docscan/storage/PdfSharing;Landroid/content/Context;Ljava/io/File;Ljava/lang/CharSequence;ILjava/lang/Object;)Landroid/content/Intent;
+	public static synthetic fun shareIntent$default (Lnet/plumt/docscan/storage/PdfSharing;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Object;)Landroid/content/Intent;
+}
+
+public final class net/plumt/docscan/storage/SaveLocation : java/lang/Enum {
+	public static final field APP_SPECIFIC Lnet/plumt/docscan/storage/SaveLocation;
+	public static final field DOWNLOADS Lnet/plumt/docscan/storage/SaveLocation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lnet/plumt/docscan/storage/SaveLocation;
+	public static fun values ()[Lnet/plumt/docscan/storage/SaveLocation;
+}
+
+public final class net/plumt/docscan/storage/SavedPdf {
+	public fun <init> (Landroid/net/Uri;Ljava/lang/String;Lnet/plumt/docscan/storage/SaveLocation;JLjava/io/File;)V
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getFile ()Ljava/io/File;
+	public final fun getLocation ()Lnet/plumt/docscan/storage/SaveLocation;
+	public final fun getSizeBytes ()J
+	public final fun getUri ()Landroid/net/Uri;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class net/plumt/docscan/storage/ScanPageStore {
+	public static final field Companion Lnet/plumt/docscan/storage/ScanPageStore$Companion;
+	public abstract fun clear (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun delete (Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun keep (Lnet/plumt/docscan/ScannedDocument;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class net/plumt/docscan/storage/ScanPageStore$Companion {
+	public final fun files (Landroid/content/Context;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;)Lnet/plumt/docscan/storage/ScanPageStore;
+	public static synthetic fun files$default (Lnet/plumt/docscan/storage/ScanPageStore$Companion;Landroid/content/Context;Ljava/lang/String;Lkotlinx/coroutines/CoroutineDispatcher;ILjava/lang/Object;)Lnet/plumt/docscan/storage/ScanPageStore;
+}
+

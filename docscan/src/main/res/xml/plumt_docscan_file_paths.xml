@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    API 28 이하(xml-v29 가 API 29+ 를 덮어쓴다). 캐시 안 공유 전용 폴더와, PdfSaver.downloads 가 저장하는 앱 전용 폴더다.
+    저장한 PDF 의 SavedPdf.uri 를 content: 로 주기 위해 넣었다. 앱의 다른 파일은 이 provider 로 열리지 않는다
+-->
+<paths>
+    <cache-path
+        name="plumt_docscan_share"
+        path="plumt_docscan/share/" />
+    <external-files-path
+        name="plumt_docscan_saved"
+        path="Documents/" />
+    <files-path
+        name="plumt_docscan_saved_internal"
+        path="Documents/" />
+</paths>
